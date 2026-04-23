@@ -21,12 +21,12 @@
         compatible = "zmk,keymap";
 
         base {
-            display-name = "DVORAK";
+            display-name = "CALIB";
             bindings = <
-                &kp SQT  &kp COMMA &kp DOT &kp P &kp Y      &kp F &kp G &kp C &kp R &kp L
-                &kp A    &kp O     &kp E   &kp U &kp I      &kp D &kp H &kp T &kp N &kp S
-                &kp SEMI &kp Q     &kp J   &kp K &kp X      &kp B &kp M &kp W &kp V &kp Z
-                                 &kp LGUI &mo 1 &kp SPACE   &kp RET &mo 2 &kp RALT
+                &kp TAB   &kp SQT  &kp COMMA &kp DOT &kp P &kp Y      &kp F &kp G &kp C &kp R &kp L &kp BSPC
+                &kp LCTRL &kp A    &kp O     &kp E   &kp U &kp I      &kp D &kp H &kp T &kp N &kp S &kp SQT
+                &kp LSHFT &kp SEMI &kp Q     &kp J   &kp K &kp X      &kp B &kp M &kp W &kp V &kp Z &kp ESC
+                                 &kp LGUI &mo 1 &kp SPACE         &kp RET &mo 2 &kp RALT
             >;
         };
 
