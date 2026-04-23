@@ -219,7 +219,7 @@
                 &kp TAB   &macro_quote_space &HRM_left_ring_v1_TKZ RALT COMMA    &kp DOT                         &kp P                           &kp Y               &kp F       &kp G                            &kp C                            &HRM_right_ring_v1_TKZ RALT R    &kp L &kp BSPC
                 &kp LCTRL &HRM_left_pinky_v1_TKZ LGUI A   &HRM_left_ring_v1_TKZ LALT O        &HRM_left_middy_v1_TKZ LCTRL E  &HRM_left_index_v1_TKZ LSHFT U  &kp I               &kp D       &HRM_right_index_v1_TKZ RSHFT H  &HRM_right_middy_v1_TKZ RCTRL T  &HRM_right_ring_v1_TKZ LALT N    &HRM_right_pinky_v1_TKZ RGUI S &kp SQT
                 &kp LSHFT &kp SEMI &kp Q     &kp J   &kp K &kp X      &kp B &kp M &kp W &kp V &kp Z &kp ESC
-                &thumb_v2_TKZ FUNC ESC  &thumb_v2_TKZ NAV SPACE  &thumb_v2_TKZ MSE TAB    &thumb_v2_TKZ SYM RET  &thumb_v2_TKZ NUM BSPC  &thumb_v2_TKZ MDIA DEL
+                &thumb_v2_TKZ MDIA ESC  &thumb_v2_TKZ NAV SPACE  &thumb_v2_TKZ MSE TAB    &thumb_v2_TKZ SYM RET  &thumb_v2_TKZ NUM BSPC  &thumb_v2_TKZ FUNC DEL
             >;
         };
 
