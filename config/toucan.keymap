@@ -5,28 +5,38 @@
 
 #define BASE 0
 #define NAV  1
-#define SYM  2
-#define ADJ  3
+#define MSE  2
+#define SYM  3
+#define NUM  4
+#define FUNC 5
+#define MDIA 6
 
 / {
-    conditional_layers {
-        compatible = "zmk,conditional-layers";
-        tri_layer {
-            if-layers = <1 2>;
-            then-layer = <3>;
-        };
-    };
+    behaviors {
 
+        thumb_v2_TKZ: thumb_v2_TKZ {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            tapping-term-ms = <200>;
+            bindings = <&mo>, <&kp>;
+            flavor = "balanced";
+            quick-tap-ms = <300>;
+        };
+
+    };
+};
+
+/ {
     keymap {
         compatible = "zmk,keymap";
 
         base {
-            display-name = "CALIB";
+            display-name = "BASE";
             bindings = <
                 &kp TAB   &kp SQT  &kp COMMA &kp DOT &kp P &kp Y      &kp F &kp G &kp C &kp R &kp L &kp BSPC
                 &kp LCTRL &kp A    &kp O     &kp E   &kp U &kp I      &kp D &kp H &kp T &kp N &kp S &kp SQT
                 &kp LSHFT &kp SEMI &kp Q     &kp J   &kp K &kp X      &kp B &kp M &kp W &kp V &kp Z &kp ESC
-                                 &kp LGUI &mo 1 &kp SPACE         &kp RET &mo 2 &kp RALT
+                &thumb_v2_TKZ FUNC ESC  &thumb_v2_TKZ NAV SPACE  &thumb_v2_TKZ MSE TAB    &thumb_v2_TKZ SYM RET  &thumb_v2_TKZ NUM BSPC  &thumb_v2_TKZ MDIA DEL
             >;
         };
 
@@ -50,8 +60,8 @@
             >;
         };
 
-        adj {
-            display-name = "ADJ";
+        mdia {
+            display-name = "MDIA";
             bindings = <
                 &mo TAB   &trans &kp F7 &kp F8 &kp F9 &kp F12   &kp C_VOL_DN &kp C_MUTE  &kp C_VOL_UP &trans &trans &kp BSPC
                 &kp LCTRL &trans &kp F4 &kp F5 &kp F6 &kp F11   &trans       &trans      &trans       &trans &trans &trans
