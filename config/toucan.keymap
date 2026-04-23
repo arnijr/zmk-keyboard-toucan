@@ -165,7 +165,7 @@
         // å (aa)
         combo_aa {
             timeout-ms = <40>;
-            key-positions = <POS_LH_C4R3 POS_LH_C3R3>;
+            key-positions = <14 15>;
             bindings = <&kp RA(W)>;
             layers = <LAYER_Base>;
             require-prior-idle-ms = <100>;
@@ -174,7 +174,7 @@
         // ø (Norwegian oe)
         combo_no_oe {
             timeout-ms = <40>;
-            key-positions = <POS_RH_C3R3 POS_RH_C4R3>;
+            key-positions = <20 21>;
             bindings = <&kp RA(L)>;
             layers = <LAYER_Base>;
             require-prior-idle-ms = <100>;
@@ -183,7 +183,7 @@
         // æ (ae)
         combo_ae {
             timeout-ms = <40>;
-            key-positions = <POS_RH_C3R2 POS_RH_C4R2>;
+            key-positions = <8 9>;
             bindings = <&kp RA(Z)>;
             layers = <LAYER_Base>;
             require-prior-idle-ms = <100>;
@@ -192,7 +192,7 @@
         // þ (thorn)
         combo_thorn {
             timeout-ms = <40>;
-            key-positions = <POS_LH_C2R2 POS_LH_C4R2>;
+            key-positions = <2 4>;
             bindings = <&kp RA(T)>;
             layers = <LAYER_Base>;
             require-prior-idle-ms = <100>;
@@ -201,7 +201,7 @@
         // ð (eth)
         combo_eth {
             timeout-ms = <40>;
-            key-positions = <POS_LH_C3R2 POS_LH_C4R2>;
+            key-positions = <2 3>;
             bindings = <&kp RA(D)>;
             layers = <LAYER_Base>;
             require-prior-idle-ms = <100>;
