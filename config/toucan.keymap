@@ -167,7 +167,7 @@
             timeout-ms = <40>;
             key-positions = <14 15>;
             bindings = <&kp RA(W)>;
-            layers = <LAYER_Base>;
+            layers = <BASE>;
             require-prior-idle-ms = <100>;
         };
 
@@ -176,7 +176,7 @@
             timeout-ms = <40>;
             key-positions = <20 21>;
             bindings = <&kp RA(L)>;
-            layers = <LAYER_Base>;
+            layers = <BASE>;
             require-prior-idle-ms = <100>;
         };
 
@@ -185,7 +185,7 @@
             timeout-ms = <40>;
             key-positions = <8 9>;
             bindings = <&kp RA(Z)>;
-            layers = <LAYER_Base>;
+            layers = <BASE>;
             require-prior-idle-ms = <100>;
         };
 
@@ -194,7 +194,7 @@
             timeout-ms = <40>;
             key-positions = <2 4>;
             bindings = <&kp RA(T)>;
-            layers = <LAYER_Base>;
+            layers = <BASE>;
             require-prior-idle-ms = <100>;
         };
 
@@ -203,7 +203,7 @@
             timeout-ms = <40>;
             key-positions = <2 3>;
             bindings = <&kp RA(D)>;
-            layers = <LAYER_Base>;
+            layers = <BASE>;
             require-prior-idle-ms = <100>;
         };
     };
