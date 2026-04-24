@@ -235,8 +235,8 @@
             display-name = "BASE";
             bindings = <
 //  |  0  |         1          |         2          |         3          |         4          |         5          |   |         6          |         7          |         8          |         9          |         10         | 11 |
-    &none  &m_qtsp              &hmr_lr RALT COMMA   &kp DOT              &kp P                &kp Y                    &kp F                &kp G                &kp C                &hmr_rr RALT R       &kp L                &none
-    &none  &hmr_lp LGUI A       &hmr_lr LALT O       &hmr_lm LCTRL E      &hmr_li LSHFT U      &kp I                    &kp D                &hmr_ri RSHFT H      &hmr_rm RCTRL T      &hmr_rr LALT N       &hmr_rp RGUI S       &none
+    &none  &m_qtsp              &hrm_lr RALT COMMA   &kp DOT              &kp P                &kp Y                    &kp F                &kp G                &kp C                &hrm_rr RALT R       &kp L                &none
+    &none  &hrm_lp LGUI A       &hrm_lr LALT O       &hrm_lm LCTRL E      &hrm_li LSHFT U      &kp I                    &kp D                &hrm_ri RSHFT H      &hrm_rm RCTRL T      &hrm_rr LALT N       &hrm_rp RGUI S       &none
     &none  &kp SEMI             &kp Q                &kp J                &kp K                &kp X                    &kp B                &kp M                &kp W                &kp V                &kp Z                &none
                                                      &thumbs MDIA ESC     &thumbs NAV SPACE    &thumbs MSE TAB          &thumbs SYM RET      &thumbs NUM BSPC     &thumbs FUNC DEL
             >;
@@ -270,7 +270,7 @@
 //  |  0  |         1          |         2          |         3          |         4          |         5          |   |         6          |         7          |         8          |         9          |         10         | 11 |
     &none  &kp LS(LBKT)         &kp LS(N7)           &kp LS(N8)           &kp LS(N9)           &kp LS(RBKT)             &none                &none                &none                &kp RALT             &none                &none
     &none  &kp LS(FSLH)         &kp LS(N4)           &kp LS(N5)           &kp LS(N6)           &kp LS(EQUAL)            &none                &kp RSHFT            &kp RCTRL            &kp LALT             &kp RGUI             &none
-    &none  &m_tlsp              &kp LS(N1)           &kp LS(N2)           &kp LS(N3)           &kp LS(BSLH)             &none                &none                &none                &none                &kp DQT              &none
+    &none  &m_tlsp              &kp LS(N1)           &kp LS(N2)           &kp LS(N3)           &kp LS(BSLH)             &none                &none                &kp RA(FSLH)         &kp RA(N1)           &kp RA(S)            &none
                                                      &kp LS(N9)           &kp LS(N0)           &kp UNDER                &none                &none                &none
             >;
         };
@@ -281,7 +281,7 @@
 //  |  0  |         1          |         2          |         3          |         4          |         5          |   |         6          |         7          |         8          |         9          |         10         | 11 |
     &none  &kp LBKT             &kp N7               &kp N8               &kp N9               &kp RBKT                 &none                &none                &none                &kp RALT             &none                &none
     &none  &kp FSLH             &kp N4               &kp N5               &kp N6               &kp EQUAL                &none                &kp RSHFT            &kp RCTRL            &kp LALT             &kp RGUI             &none
-    &none  &m_tksp              &kp N1               &kp N2               &kp N3               &kp BSLH                 &none                &none                &none                &none                &kp SQT              &none
+    &none  &m_tksp              &kp N1               &kp N2               &kp N3               &kp BSLH                 &none                &kp GRAVE            &kp TILDE            &kp DQT              &kp SQT              &none
                                                      &kp DOT              &kp N0               &kp MINUS                &none                &none                &none
             >;
         };
