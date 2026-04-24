@@ -12,6 +12,23 @@
 #define FUNC 5
 #define MDIA 6
 
+/* --- Input Processor for Touchpad Scrolling --- */
+/ {
+    zip_xy_to_scroll: zip_xy_to_scroll {
+        compatible = "zmk,input-processor-code-mapper";
+        #input-processor-cells = <0>;
+        // Map X movement to Vertical Wheel and Y movement to Horizontal Wheel
+        map = <INPUT_REL_X INPUT_REL_WHEEL>, <INPUT_REL_Y INPUT_REL_HWHEEL>;
+    };
+};
+
+/* --- Apply Scroll Mode to NAV Layer --- */
+&glidepoint_split {
+    device = <&glidepoint>;
+    input-processors = <&zip_xy_to_scroll>;
+    layers = <NAV>;
+};
+
 / {
     macros {
         // Sends ` followed by Space
@@ -35,11 +52,6 @@
             bindings = <&kp LS(GRAVE) &kp SPACE>;
         };
     };
-};
-
-&zip_scroll_scaler {
-    // This scales the speed of the scroll
-    outputs = <&msc SCRL_UP &msc SCRL_DOWN &msc SCRL_LEFT &msc SCRL_RIGHT>;
 };
 
 / {
@@ -224,7 +236,7 @@
         // ð (eth) - Right Top Row C+R (Index+Middle)
         combo_eth {
             timeout-ms = <40>;
-            key-positions = <7 8>;
+            key-positions = <8 9>;
             bindings = <&kp RA(D)>;
             layers = <BASE>;
             require-prior-idle-ms = <100>;
