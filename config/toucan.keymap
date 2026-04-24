@@ -15,21 +15,21 @@
 / {
     macros {
         // Sends ` followed by Space
-        macro_tick_space: macro_tick_space {
+        m_tksp: m_tksp {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings = <&kp GRAVE &kp SPACE>;
         };
 
         // Sends ' followed by Space
-        macro_quote_space: macro_quote_space {
+        m_qtsp: m_qtsp {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings = <&kp SQT &kp SPACE>;
         };
 
         // Sends ~ followed by Space
-        macro_tilde_space: macro_tilde_space {
+        m_tlsp: m_tlsp {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings = <&kp LS(GRAVE) &kp SPACE>;
@@ -43,7 +43,7 @@
 /* --- TailorKey HRM Behaviors for Toucan (42-key Matrix) --- */
 
         // Left Pinky
-        HRM_left_pinky_v1_TKZ: HRM_left_pinky_v1_TKZ {
+        hrm_lp: hrm_lp {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
             tapping-term-ms = <260>;
@@ -56,7 +56,7 @@
         };
 
         // Left Ring
-        HRM_left_ring_v1_TKZ: HRM_left_ring_v1_TKZ {
+        hrm_lr: hrm_lr {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
             tapping-term-ms = <240>;
@@ -69,7 +69,7 @@
         };
 
         // Left Middle
-        HRM_left_middy_v1_TKZ: HRM_left_middy_v1_TKZ {
+        hrm_lm: hrm_lm {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
             tapping-term-ms = <230>;
@@ -82,7 +82,7 @@
         };
 
         // Left Index
-        HRM_left_index_v1_TKZ: HRM_left_index_v1_TKZ {
+        hrm_li: hrm_li {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
             tapping-term-ms = <190>;
@@ -95,7 +95,7 @@
         };
 
         // Right Index
-        HRM_right_index_v1_TKZ: HRM_right_index_v1_TKZ {
+        hrm_ri: hrm_ri {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
             tapping-term-ms = <190>;
@@ -108,7 +108,7 @@
         };
 
         // Right Middle
-        HRM_right_middy_v1_TKZ: HRM_right_middy_v1_TKZ {
+        hrm_rm: hrm_rm {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
             tapping-term-ms = <230>;
@@ -121,7 +121,7 @@
         };
 
         // Right Ring
-        HRM_right_ring_v1_TKZ: HRM_right_ring_v1_TKZ {
+        hrm_rr: hrm_rr {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
             tapping-term-ms = <240>;
@@ -134,7 +134,7 @@
         };
 
         // Right Pinky
-        HRM_right_pinky_v1_TKZ: HRM_right_pinky_v1_TKZ {
+        hrm_rp: hrm_rp {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
             tapping-term-ms = <260>;
@@ -146,7 +146,7 @@
             hold-trigger-on-release;
         };
         
-        thumb_v2_TKZ: thumb_v2_TKZ {
+        thumbs: thumbs {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
             tapping-term-ms = <200>;
@@ -158,10 +158,11 @@
     };
 };
 
-/ {    combos {
+/ {
+    combos {
         compatible = "zmk,combos";
 
-        // å (aa)
+        // å (aa) - Left O+E (Ring+Middle)
         combo_aa {
             timeout-ms = <40>;
             key-positions = <14 15>;
@@ -170,37 +171,55 @@
             require-prior-idle-ms = <100>;
         };
 
-        // ø (Norwegian oe)
-        combo_no_oe {
-            timeout-ms = <40>;
-            key-positions = <20 21>;
-            bindings = <&kp RA(L)>;
-            layers = <BASE>;
-            require-prior-idle-ms = <100>;
-        };
-
-        // æ (ae)
+        // æ (ae) - Left E+U (Middle+Index)
         combo_ae {
             timeout-ms = <40>;
-            key-positions = <8 9>;
+            key-positions = <15 16>;
             bindings = <&kp RA(Z)>;
             layers = <BASE>;
             require-prior-idle-ms = <100>;
         };
 
-        // þ (thorn)
+        // þ (thorn) - Left Top Row ' + , (Ring+Middle)
         combo_thorn {
             timeout-ms = <40>;
-            key-positions = <2 4>;
+            key-positions = <2 3>;
             bindings = <&kp RA(T)>;
             layers = <BASE>;
             require-prior-idle-ms = <100>;
         };
 
-        // ð (eth)
+        // ´ (Acute Accent) - Right T+N (Middle+Ring)
+        combo_accent {
+            timeout-ms = <40>;
+            key-positions = <20 21>;
+            bindings = <&kp SQT>; // Dead-key for International layouts
+            layers = <BASE>;
+            require-prior-idle-ms = <100>;
+        };
+
+        // ø (Norwegian oe) - Right H+T (Index+Middle)
+        combo_no_oe {
+            timeout-ms = <40>;
+            key-positions = <19 20>;
+            bindings = <&kp RA(L)>;
+            layers = <BASE>;
+            require-prior-idle-ms = <100>;
+        };
+
+        // ö (Icelandic oe) - Right H+N (Index+Ring) [Wide Skip]
+        combo_is_oe {
+            timeout-ms = <40>;
+            key-positions = <19 21>;
+            bindings = <&kp RA(P)>; // Correct AltGr binding for ö
+            layers = <BASE>;
+            require-prior-idle-ms = <100>;
+        };
+
+        // ð (eth) - Right Top Row C+R (Index+Middle)
         combo_eth {
             timeout-ms = <40>;
-            key-positions = <2 3>;
+            key-positions = <7 8>;
             bindings = <&kp RA(D)>;
             layers = <BASE>;
             require-prior-idle-ms = <100>;
@@ -215,73 +234,80 @@
         base {
             display-name = "BASE";
             bindings = <
-                &kp TAB   &macro_quote_space &HRM_left_ring_v1_TKZ RALT COMMA    &kp DOT                         &kp P                           &kp Y               &kp F       &kp G                            &kp C                            &HRM_right_ring_v1_TKZ RALT R    &kp L &kp BSPC
-                &kp LCTRL &HRM_left_pinky_v1_TKZ LGUI A   &HRM_left_ring_v1_TKZ LALT O        &HRM_left_middy_v1_TKZ LCTRL E  &HRM_left_index_v1_TKZ LSHFT U  &kp I               &kp D       &HRM_right_index_v1_TKZ RSHFT H  &HRM_right_middy_v1_TKZ RCTRL T  &HRM_right_ring_v1_TKZ LALT N    &HRM_right_pinky_v1_TKZ RGUI S &kp SQT
-                &kp LSHFT &kp SEMI &kp Q     &kp J   &kp K &kp X      &kp B &kp M &kp W &kp V &kp Z &kp ESC
-                &thumb_v2_TKZ MDIA ESC  &thumb_v2_TKZ NAV SPACE  &thumb_v2_TKZ MSE TAB    &thumb_v2_TKZ SYM RET  &thumb_v2_TKZ NUM BSPC  &thumb_v2_TKZ FUNC DEL
+//  |  0  |         1          |         2          |         3          |         4          |         5          |   |         6          |         7          |         8          |         9          |         10         | 11 |
+    &none  &m_qtsp              &hmr_lr RALT COMMA   &kp DOT              &kp P                &kp Y                    &kp F                &kp G                &kp C                &hmr_rr RALT R       &kp L                &none
+    &none  &hmr_lp LGUI A       &hmr_lr LALT O       &hmr_lm LCTRL E      &hmr_li LSHFT U      &kp I                    &kp D                &hmr_ri RSHFT H      &hmr_rm RCTRL T      &hmr_rr LALT N       &hmr_rp RGUI S       &none
+    &none  &kp SEMI             &kp Q                &kp J                &kp K                &kp X                    &kp B                &kp M                &kp W                &kp V                &kp Z                &none
+                                                     &thumbs MDIA ESC     &thumbs NAV SPACE    &thumbs MSE TAB          &thumbs SYM RET      &thumbs NUM BSPC     &thumbs FUNC DEL
             >;
         };
 
         nav {
             display-name = "NAV";
             bindings = <
-                &kp TAB     &kp LC(Z)   &kp LC(X)   &kp LC(C)  &kp LC(V)  &kp LC(LS(Z))         &kp LC(Y)  &kp LC(V)  &kp LC(C)  &kp LC(X)  &kp LC(Z) &kp BSPC
-                &bt BT_CLR  &kp LGUI    &kp LALT    &kp LCTRL  &kp LSHFT  &caps_word            &kp CAPS   &kp LEFT   &kp DOWN   &kp UP     &kp RIGHT &trans
-                &kp LSHFT   &none       &kp LA(F4)  &kp LC(F4) &kp ESC    &none                 &kp INS    &kp HOME   &kp PG_DN  &kp PG_UP  &kp END &trans
-                                                &none     &none       &none      &kp RET  &kp BSPC   &kp DEL
+//  |  0  |         1          |         2          |         3          |         4          |         5          |   |         6          |         7          |         8          |         9          |         10         | 11 |
+    &none  &kp LC(Z)            &kp LC(X)            &kp LC(C)            &kp LC(V)            &kp LC(LS(Z))            &kp LC(Y)            &kp LC(V)            &kp LC(C)            &kp LC(X)            &kp LC(Z)            &none
+    &none  &kp LGUI             &kp LALT             &kp LCTRL            &kp LSHFT            &caps_word               &kp CAPS             &kp LEFT             &kp DOWN             &kp UP               &kp RIGHT            &none
+    &none  &none                &kp LA(F4)           &kp LC(F4)           &kp ESC              &none                    &kp INS              &kp HOME             &kp PG_DN            &kp PG_UP            &kp END              &none
+                                                     &none                &none                &none                    &kp RET              &kp BSPC             &kp DEL
             >;
         };
 
         mse {
             display-name = "MSE";
             bindings = <
-    &kp TAB  &none     &kp RALT  &none      &none      &none                     &kp K_REDO  &kp K_PASTE      &kp K_COPY       &kp K_CUT       &kp K_UNDO        &kp BSPC
-    &kp LCTRL  &kp LGUI  &kp LALT  &kp LCTRL  &kp LSHFT  &none                     &none       &mmv MOVE_LEFT   &mmv MOVE_DOWN   &mmv MOVE_UP    &mmv MOVE_RIGHT &kp SQT
-    &kp LSHFT  &none     &none     &none      &none      &none                     &none       &msc SCRL_RIGHT  &msc SCRL_UP     &msc SCRL_DOWN  &msc SCRL_LEFT  &kp ESC
-                                   &none      &none      &none          &mkp RCLK   &mkp LCLK  &mkp MCLK
+//  |  0  |         1          |         2          |         3          |         4          |         5          |   |         6          |         7          |         8          |         9          |         10         | 11 |
+    &none  &none                &kp RALT             &none                &none                &none                    &kp K_REDO           &kp K_PASTE          &kp K_COPY           &kp K_CUT            &kp K_UNDO           &none
+    &none  &kp LGUI             &kp LALT             &kp LCTRL            &kp LSHFT            &none                    &none                &mmv MOVE_LEFT       &mmv MOVE_DOWN       &mmv MOVE_UP         &mmv MOVE_RIGHT      &none
+    &none  &none                &none                &none                &none                &none                    &none                &msc SCRL_RIGHT      &msc SCRL_UP         &msc SCRL_DOWN       &msc SCRL_LEFT       &none
+                                                     &none                &none                &none                    &mkp RCLK            &mkp LCLK            &mkp MCLK
             >;
         };
 
         sym {
             display-name = "SYM";
             bindings = <
-                &kp TAB   &kp LS(LBKT)   &kp LS(N7)  &kp LS(N8)  &kp LS(N9)   &kp LS(RBKT)           &none  &none                &none      &kp RALT  &none &kp BSPC
-                &kp LCTRL &kp LS(FSLH)   &kp LS(N4)  &kp LS(N5)  &kp LS(N6)   &kp LS(EQUAL)          &none  &kp RSHFT            &kp RCTRL  &kp LALT  &kp RGUI &kp GRAVE
-                &kp LSHFT &macro_tilde_space  &kp LS(N1)  &kp LS(N2)  &kp LS(N3)   &kp LS(BSLH)           &none  &none  &none      &none     &kp DOUBLE_QUOTES &kp TILDE
-                                          &kp LS(N9)   &kp LS(N0)  &kp UNDER           &none &none &none
+//  |  0  |         1          |         2          |         3          |         4          |         5          |   |         6          |         7          |         8          |         9          |         10         | 11 |
+    &none  &kp LS(LBKT)         &kp LS(N7)           &kp LS(N8)           &kp LS(N9)           &kp LS(RBKT)             &none                &none                &none                &kp RALT             &none                &none
+    &none  &kp LS(FSLH)         &kp LS(N4)           &kp LS(N5)           &kp LS(N6)           &kp LS(EQUAL)            &none                &kp RSHFT            &kp RCTRL            &kp LALT             &kp RGUI             &none
+    &none  &m_tlsp              &kp LS(N1)           &kp LS(N2)           &kp LS(N3)           &kp LS(BSLH)             &none                &none                &none                &none                &kp DQT              &none
+                                                     &kp LS(N9)           &kp LS(N0)           &kp UNDER                &none                &none                &none
             >;
         };
 
-       num {
+        num {
             display-name = "NUM";
             bindings = <
-    &kp TAB   &kp LBKT   &kp N7  &kp N8  &kp N9   &kp RBKT            &none  &none      &none      &kp RALT  &none    &kp BSPC
-    &kp LCTRL &kp FSLH   &kp N4  &kp N5  &kp N6   &kp EQUAL           &none  &kp RSHFT  &kp RCTRL  &kp LALT  &kp RGUI &kp SQT
-    &kp LSHFT &macro_tick_space  &kp N1  &kp N2  &kp N3   &kp BSLH            &none  &none      &none      &none     &kp SQT    &kp ESC
-                               &kp DOT  &kp N0  &kp MINUS            &none  &none   &none
+//  |  0  |         1          |         2          |         3          |         4          |         5          |   |         6          |         7          |         8          |         9          |         10         | 11 |
+    &none  &kp LBKT             &kp N7               &kp N8               &kp N9               &kp RBKT                 &none                &none                &none                &kp RALT             &none                &none
+    &none  &kp FSLH             &kp N4               &kp N5               &kp N6               &kp EQUAL                &none                &kp RSHFT            &kp RCTRL            &kp LALT             &kp RGUI             &none
+    &none  &m_tksp              &kp N1               &kp N2               &kp N3               &kp BSLH                 &none                &none                &none                &none                &kp SQT              &none
+                                                     &kp DOT              &kp N0               &kp MINUS                &none                &none                &none
             >;
         };
 
         func {
             display-name = "FUNC";
             bindings = <
-    &kp TAB   &kp F12  &kp F7  &kp F8  &kp F9  &kp PSCRN              &none  &none      &none      &kp RALT  &none    &kp BSPC
-    &kp LCTRL &kp F11  &kp F4  &kp F5  &kp F6  &kp SLCK               &none  &kp RSHFT  &kp RCTRL  &kp LALT  &kp RGUI &kp SQT
-    &kp LSHFT &kp F10  &kp F1  &kp F2  &kp F3  &kp K_PP               &none  &none      &none      &none     &none    &kp ESC
-                             &kp SPACE  &kp TAB             &none   &none
+//  |  0  |         1          |         2          |         3          |         4          |         5          |   |         6          |         7          |         8          |         9          |         10         | 11 |
+    &none  &kp F12              &kp F7               &kp F8               &kp F9               &kp PSCRN                &none                &none                &none                &kp RALT             &none                &none
+    &none  &kp F11              &kp F4               &kp F5               &kp F6               &kp SLCK                 &none                &kp RSHFT            &kp RCTRL            &kp LALT             &kp RGUI             &none
+    &none  &kp F10              &kp F1               &kp F2               &kp F3               &kp K_PP                 &none                &none                &none                &none                &none                &none
+                                                     &kp SPACE            &kp TAB              &none                    &none                &none                &none
             >;
         };
 
         mdia {
             display-name = "MDIA";
             bindings = <
-//  |      0      |      1      |      2      |      3      |      4      |      5      |   |      6      |      7      |      8      |      9      |     10      |     11      |
-    &kp TAB       &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4      &none         &none         &none         &none         &none         &kp BSPC
-    &kp LCTRL     &bt BT_PRV    &bt BT_NXT    &none         &bt BT_CLR_ALL &bt BT_CLR       &none         &kp C_PREV    &kp C_VOL_DN  &kp C_VOL_UP  &kp C_NEXT    &trans
-    &kp LSHFT     &bootloader   &sys_reset    &studio_unlock &none        &out OUT_USB      &none         &none         &none         &none         &bootloader   &trans
-                                              &none         &none         &none             &kp C_STOP    &kp C_PP      &kp C_MUTE
+//  |  0  |         1          |         2          |         3          |         4          |         5          |   |         6          |         7          |         8          |         9          |         10         | 11 |
+    &none  &bt BT_SEL 0         &bt BT_SEL 1         &bt BT_SEL 2         &bt BT_SEL 3         &bt BT_SEL 4             &none                &none                &none                &none                &none                &none
+    &none  &bt BT_PRV           &bt BT_NXT           &none                &bt BT_CLR_ALL       &bt BT_CLR               &none                &kp C_PREV           &kp C_VOL_DN         &kp C_VOL_UP         &kp C_NEXT           &none
+    &none  &bootloader          &sys_reset           &studio_unlock       &none                &out OUT_USB             &none                &none                &none                &none                &bootloader          &none
+                                                                          &none                &none                    &none                &kp C_STOP           &kp C_PP             &kp C_MUTE
             >;
-        };        extra_1 {
+        };
+        extra_1 {
                 status = "reserved";
         };
 
