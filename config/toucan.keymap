@@ -12,25 +12,24 @@
 #define FUNC 5
 #define MDIA 6
 
-/* --- Input Processor for Touchpad Scrolling --- */
-/* 1. The Mapper: Still the same, converts movement to wheel */
+/* 1. Define the translator with the required 'type' property */
 / {
     zip_xy_to_scroll: zip_xy_to_scroll {
         compatible = "zmk,input-processor-code-mapper";
         #input-processor-cells = <0>;
+        type = <INPUT_EV_REL>; // This was the missing piece!
         map = <INPUT_REL_X INPUT_REL_WHEEL>, <INPUT_REL_Y INPUT_REL_HWHEEL>;
     };
 };
 
-/* 2. The Listener: This is the correct way to target a layer */
+/* 2. The Listener stays the same */
 / {
-    // We create a new listener that "listens" to the glidepoint_split device
     scroll_listener {
         compatible = "zmk,input-listener";
-        device = <&glidepoint_split>; // Targets your split touchpad
+        device = <&glidepoint_split>;
 
         scrolling {
-            layers = <NAV>; // Now it knows what 'layers' means
+            layers = <NAV>;
             input-processors = <&zip_xy_to_scroll>;
         };
     };
