@@ -37,6 +37,11 @@
     };
 };
 
+&zip_scroll_scaler {
+    // This scales the speed of the scroll
+    outputs = <&msc SCRL_UP &msc SCRL_DOWN &msc SCRL_LEFT &msc SCRL_RIGHT>;
+};
+
 / {
     behaviors {
 
@@ -244,6 +249,7 @@
 
         nav {
             display-name = "NAV";
+            input-processors = <&zip_scroll_scaler>;
             bindings = <
 //  |  0  |         1          |         2          |         3          |         4          |         5          |   |         6          |         7          |         8          |         9          |         10         | 11 |
     &none  &kp LC(Z)            &kp LC(X)            &kp LC(C)            &kp LC(V)            &kp LC(LS(Z))            &kp LC(Y)            &kp LC(V)            &kp LC(C)            &kp LC(X)            &kp LC(Z)            &none
