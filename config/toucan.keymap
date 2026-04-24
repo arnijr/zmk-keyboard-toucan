@@ -158,8 +158,7 @@
     };
 };
 
-/ {
-    combos {
+/ {    combos {
         compatible = "zmk,combos";
 
         // å (aa)
@@ -276,13 +275,13 @@
         mdia {
             display-name = "MDIA";
             bindings = <
-                &mo TAB   &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3   &bt BT_SEL 4   &none  &none  &none  &none  &none   &kp BSPC
-                &kp LCTRL &bt BT_PRV   &bt BT_NXT   &none        &bt BT_CLR_ALL &bt BT_CLR     &none  &kp C_PREV    &kp C_VOL_DN  &kp C_VOL_UP  &kp C_NEXT &trans
-                &bt LSHFT &bootloader  &sys_reset   &studio_unlock        &none          &out OUT_USB   &none  &none  &none  &none  &bootloader   &trans
-                                   &none  &none  &none     &kp C_STOP    &kp C_PP  &kp C_MUTE
+    |      0      |      1      |      2      |      3      |      4      |      5      |   |      6      |      7      |      8      |      9      |     10      |     11      |
+    &kp TAB       &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4      &none         &none         &none         &none         &none         &kp BSPC
+    &kp LCTRL     &bt BT_PRV    &bt BT_NXT    &none         &bt BT_CLR_ALL &bt BT_CLR       &none         &kp C_PREV    &kp C_VOL_DN  &kp C_VOL_UP  &kp C_NEXT    &trans
+    &kp LSHFT     &bootloader   &sys_reset    &studio_unlock &none        &out OUT_USB      &none         &none         &none         &none         &bootloader   &trans
+                                              &none         &none         &none             &kp C_STOP    &kp C_PP      &kp C_MUTE
             >;
-        };
-        extra_1 {
+        };        extra_1 {
                 status = "reserved";
         };
 
