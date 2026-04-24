@@ -12,17 +12,17 @@
 #define FUNC 5
 #define MDIA 6
 
-/* 1. Define the translator with the required 'type' property */
+/* Input processor to translate relative XY movement into scroll wheel events */
 / {
     zip_xy_to_scroll: zip_xy_to_scroll {
         compatible = "zmk,input-processor-code-mapper";
         #input-processor-cells = <0>;
-        type = <INPUT_EV_REL>; // This was the missing piece!
+        type = <INPUT_EV_REL>;
         map = <INPUT_REL_X INPUT_REL_WHEEL>, <INPUT_REL_Y INPUT_REL_HWHEEL>;
     };
 };
 
-/* 2. The Listener stays the same */
+/* Layer-active listener: enables scrolling on the NAV layer via the glidepoint_split device */
 / {
     scroll_listener {
         compatible = "zmk,input-listener";
@@ -267,7 +267,6 @@
 
         nav {
             display-name = "NAV";
-            input-processors = <&zip_scroll_scaler>;
             bindings = <
 //  |  0  |         1          |         2          |         3          |         4          |         5          |   |         6          |         7          |         8          |         9          |         10         | 11 |
     &none  &kp LC(Z)            &kp LC(X)            &kp LC(C)            &kp LC(V)            &kp LC(LS(Z))            &kp LC(Y)            &kp LC(V)            &kp LC(C)            &kp LC(X)            &kp LC(Z)            &none
